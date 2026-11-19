@@ -3,227 +3,1014 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Never Go to a Party at Midnight | A.R.GH.Y Wiki</title>
-  <meta name="description" content="The A.R.GH.Y official wiki for Never Go to a Party at Midnight. Find verified walkthroughs, tasks, puzzles, items and gameplay information.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0d0e10">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official wiki page for Never Go to a Party at Midnight, a short atmospheric VHS-style horror game developed by A.R.GH.Y.">
+  <meta name="theme-color" content="#101010">
   <link rel="canonical" href="https://unknow-1123.github.io/arghy-games-wiki/ngpam.html">
+  <title>Never Go to a Party at Midnight | A.R.GH.Y Games Wiki</title>
+
   <style>
     :root {
-      --bg:#0d0e10;--surface:#151619;--surface2:#1c1e22;
-      --border:#292b30;--text:#f3f3f3;--muted:#a0a3ab;
-      --accent:#ff7138;--max:1100px;
+      --bg: #101010;
+      --panel: #181818;
+      --panel2: #202020;
+      --border: #303030;
+      --text: #ededed;
+      --muted: #a5a5a5;
+      --accent: #ff6a35;
+      --accent2: #d9432e;
+      --warning: #e7ad48;
+      --max: 1180px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(var(--max),calc(100% - 36px));margin:auto}
-    header{position:sticky;top:0;z-index:5;background:#101114ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-    nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-    .brand{font-size:16px;font-weight:900;letter-spacing:1px}
-    .brand span{color:var(--accent)}
-    .navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:#c4c6cc}
-    .navlinks a:hover,.back:hover{color:var(--accent)}
-    .hero{padding:75px 0 65px;background:radial-gradient(ellipse at 85% 20%,#ff71381c,transparent 45%),#111215;border-bottom:1px solid var(--border)}
-    .eyebrow,.label{color:var(--accent);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
-    h1{font-size:clamp(34px,6vw,62px);line-height:1.08;letter-spacing:-2px;margin:17px 0}
-    .hero p{max-width:700px;color:var(--muted);font-size:15px}
-    .back{display:inline-block;margin-top:25px;color:var(--accent);font-size:12px;font-weight:800}
-    main{padding:45px 0 80px}
-    .layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:28px;align-items:start}
-    aside{position:sticky;top:90px;padding:20px;background:var(--surface);border:1px solid var(--border);border-radius:9px}
-    aside h2{font-size:13px;margin-bottom:12px}
-    aside a{display:block;padding:8px 0;color:var(--muted);font-size:12px;border-bottom:1px solid #292b303d}
-    aside a:hover{color:var(--accent)}
-    article section{padding:0 0 35px;margin-bottom:35px;border-bottom:1px solid var(--border)}
-    h2{font-size:24px;line-height:1.25;margin:10px 0 14px}
-    h3{font-size:16px;margin:20px 0 8px}
-    p{color:var(--muted);font-size:13px;margin:8px 0}
-    .notice{padding:18px 20px;background:#ff71380c;border:1px solid #ff71384d;border-left:3px solid var(--accent);border-radius:7px;margin:18px 0}
-    .notice strong{display:block;color:#fff;font-size:13px;margin-bottom:5px}
-    .notice p{margin:0}
-    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
-    .card{padding:17px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
-    .card h3{margin:0 0 6px;font-size:14px}
-    .card p{font-size:12px;margin:0}
-    .status{display:inline-block;padding:4px 8px;border:1px solid #45474e;border-radius:4px;color:#c4c6cc;font-size:10px;font-weight:800;margin-top:12px}
-    .status.pending{color:var(--accent);border-color:#ff713866}
-    .list{padding-left:20px;color:var(--muted);font-size:13px}
-    .list li{margin:7px 0}
-    footer{border-top:1px solid var(--border);padding:25px 0;color:#858892;font-size:11px}
-    @media(max-width:760px){.layout{grid-template-columns:1fr}aside{position:static}.navlinks{gap:11px;font-size:10px}.cards{grid-template-columns:1fr}h1{letter-spacing:-1px}}
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff956e; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(16,16,16,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: auto;
+      padding: 13px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: white;
+      background: #242424;
+      border: 1px solid #393939;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .back-button:hover {
+      background: #303030;
+      color: white;
+      border-color: var(--accent);
+      transform: translateX(-2px);
+    }
+
+    .brand {
+      color: white;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 14px;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .container {
+      max-width: var(--max);
+      margin: auto;
+      padding: 28px 22px 70px;
+    }
+
+    .hero {
+      min-height: 390px;
+      display: flex;
+      align-items: end;
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.57) 65%, rgba(0,0,0,.3)),
+        linear-gradient(0deg, rgba(0,0,0,.65), transparent),
+        #292929;
+    }
+
+    /* Optional hero artwork:
+       Add your cover image to images/ngpam-cover.jpg
+       Then add it as the final background layer above #292929. */
+
+    .hero-content { max-width: 760px; position: relative; }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+      color: #c5c5c5;
+      max-width: 650px;
+      font-size: 17px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      background: rgba(255,106,53,.12);
+      border: 1px solid rgba(255,106,53,.35);
+      color: #ffad8d;
+      border-radius: 30px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status {
+      display: inline-block;
+      background: #173d2a;
+      color: #8be0a9;
+      border: 1px solid #286543;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 25px;
+      margin-top: 28px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 82px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .sidebar h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #c9c9c9;
+      padding: 7px 9px;
+      margin: 2px 0;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .sidebar a:hover {
+      background: #292929;
+      color: white;
+    }
+
+    main { min-width: 0; }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 27px;
+      margin-bottom: 20px;
+    }
+
+    .section h2 {
+      font-size: 23px;
+      margin: 0 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      margin-right: 11px;
+      vertical-align: -4px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    .section h3 {
+      font-size: 17px;
+      margin: 23px 0 9px;
+      color: #ffb18f;
+    }
+
+    p { color: #c9c9c9; margin: 10px 0; }
+
+    .lead {
+      color: #e0e0e0;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .info-item {
+      background: var(--panel2);
+      border: 1px solid #303030;
+      padding: 13px 15px;
+      border-radius: 8px;
+    }
+
+    .info-label {
+      color: var(--muted);
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .info-value {
+      display: block;
+      color: white;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .notice {
+      padding: 15px 17px;
+      border-left: 4px solid var(--warning);
+      background: rgba(231,173,72,.09);
+      border-radius: 5px;
+      color: #e8d6b5;
+      margin: 15px 0;
+    }
+
+    .spoiler {
+      border: 1px solid #70402e;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #211a18;
+      margin-top: 15px;
+    }
+
+    .spoiler summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      color: #ffad8d;
+      font-weight: 800;
+    }
+
+    .spoiler-content {
+      padding: 0 18px 18px;
+      border-top: 1px solid #493027;
+    }
+
+    .control-table, .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    .control-table th, .control-table td,
+    .spec-table th, .spec-table td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .control-table th, .spec-table th {
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      background: #202020;
+    }
+
+    .control-table td:first-child {
+      color: white;
+      font-weight: 700;
+      width: 38%;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .media-slot {
+      min-height: 180px;
+      border: 1px dashed #555;
+      border-radius: 9px;
+      background: #202020;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      color: #999;
+    }
+
+    .media-slot strong {
+      color: #ddd;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .media-slot small { font-size: 11px; }
+
+    .media-slot img {
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .media-slot.has-image {
+      padding: 0;
+      border-style: solid;
+      overflow: hidden;
+    }
+
+    .location-list, .feature-list {
+      padding-left: 21px;
+      color: #c9c9c9;
+    }
+
+    .location-list li, .feature-list li { margin: 9px 0; }
+
+    .placeholder-note {
+      color: #999;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 10px;
+      margin-top: 35px;
+      text-align: center;
+      color: #858585;
+      font-size: 12px;
+    }
+
+    .footer strong { color: var(--accent); }
+
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container { padding: 18px 13px 45px; }
+      .hero { min-height: 340px; padding: 25px; }
+      .section { padding: 20px 16px; }
+      .info-grid, .gallery { grid-template-columns: 1fr; }
+      .topbar-inner { padding: 11px 13px; }
+      .brand { font-size: 11px; }
+      .back-button { font-size: 12px; padding: 8px 10px; }
+      .control-table th, .control-table td,
+      .spec-table th, .spec-table td { padding: 10px 8px; font-size: 13px; }
+    }
   </style>
 </head>
+
 <body>
-<header>
-  <div class="container">
-    <nav>
-      <a class="brand" href="index.html">A.R.GH.Y <span>WIKI</span></a>
-      <div class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="anwa.html">ANWA</a>
-        <a href="#contents">Contents</a>
-      </div>
-    </nav>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="back-button" href="index.html">
+      <span aria-hidden="true">←</span>
+      Back to Main Menu
+    </a>
+    <a class="brand" href="index.html">A.R.GH.Y <span>WIKI</span></a>
   </div>
 </header>
 
-<div class="hero">
-  <div class="container">
-    <div class="eyebrow">Official game knowledge base · Game 01</div>
-    <h1>Never Go to a Party<br>at Midnight</h1>
-    <p>
-      Welcome to the NGPAM knowledge base. This page is the central
-      reference for gameplay information, task explanations, walkthroughs,
-      puzzles, items and secrets.
-    </p>
-    <a class="back" href="index.html">← Back to A.R.GH.Y Games Wiki</a>
-  </div>
-</div>
+<div class="container">
 
-<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">A.R.GH.Y Official Game Wiki</div>
+      <h1>Never Go to a Party at Midnight</h1>
+      <p class="subtitle">
+        A short atmospheric horror experience where an ordinary day
+        gradually turns into something deeply unsettling.
+      </p>
+      <span class="status">RELEASED</span>
+      <div class="tags">
+        <span class="tag">Psychological Horror</span>
+        <span class="tag">Atmospheric</span>
+        <span class="tag">Story-Driven</span>
+        <span class="tag">Single-Player</span>
+      </div>
+    </div>
+  </section>
+
   <div class="layout">
-    <aside id="contents">
-      <h2>NGPAM Contents</h2>
-      <a href="#overview">Game Overview</a>
-      <a href="#getting-started">Getting Started</a>
-      <a href="#tasks">Tasks & Objectives</a>
-      <a href="#walkthrough">Full Walkthrough</a>
-      <a href="#puzzles">Puzzles & Solutions</a>
-      <a href="#items">Items & Secrets</a>
-      <a href="#controls">Controls</a>
-      <a href="#technical">Technical Support</a>
+
+    <aside class="sidebar">
+      <h3>Contents</h3>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#story">Story</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#characters">Characters</a>
+        <a href="#locations">Locations</a>
+        <a href="#items">Items & Objects</a>
+        <a href="#objectives">Task Manager</a>
+        <a href="#controls">Controls</a>
+        <a href="#technical">Technical Info</a>
+        <a href="#media">Gallery</a>
+        <a href="#links">Official Links</a>
+        <a href="#spoilers">Spoilers</a>
+      </nav>
     </aside>
 
-    <article>
-      <section id="overview">
-        <div class="label">01 · Introduction</div>
-        <h2>Game Overview</h2>
-        <p>
-          Never Go to a Party at Midnight is an A.R.GH.Y game.
-          This section will contain the verified game description,
-          premise, features and version information.
+    <main>
+
+      <section class="section" id="overview">
+        <h2>Overview</h2>
+
+        <p class="lead">
+          Never Go to a Party at Midnight is a short, atmospheric,
+          story-driven horror game developed by A.R.GH.Y.
+          The story follows Emma, an isolated 18-year-old girl
+          whose seemingly ordinary day takes an unexpected turn
+          when a mysterious clown appears at her door at 11:23 PM.
         </p>
-        <div class="notice">
-          <strong>About this Wiki</strong>
-          <p>
-            Guides are intended to explain the actual gameplay.
-            Information will be added after checking the corresponding
-            game version. Unverified details will not be presented as facts.
-          </p>
+
+        <p>
+          Invited to a Halloween party, Emma decides to step away
+          from her loneliness and attend. However, something far
+          more disturbing awaits her beyond the invitation.
+        </p>
+
+        <p>
+          As time passes, the atmosphere becomes increasingly strange
+          and unsettling. What initially appears to be a simple
+          Halloween night gradually develops into a disturbing
+          experience filled with uncertainty and questions.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Developer</span>
+            <span class="info-value">A.R.GH.Y</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Release Date</span>
+            <span class="info-value">October 31, 2026</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Genre</span>
+            <span class="info-value">Horror / Atmospheric / Story-Driven</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Platform</span>
+            <span class="info-value">Windows PC</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Game Engine</span>
+            <span class="info-value">Unity 6</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Estimated Playtime</span>
+            <span class="info-value">Approximately 20 minutes</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Player Perspective</span>
+            <span class="info-value">First-Person</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Game Mode</span>
+            <span class="info-value">Single-Player / Offline</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Language</span>
+            <span class="info-value">English</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Release Status</span>
+            <span class="info-value">Released</span>
+          </div>
         </div>
       </section>
 
-      <section id="getting-started">
-        <div class="label">02 · First steps</div>
-        <h2>Getting Started</h2>
+      <section class="section" id="story">
+        <h2>Story</h2>
+
+        <h3>An Ordinary Day</h3>
         <p>
-          This section will explain the first steps a new player should take,
-          including the opening area, basic interactions and important
-          information before progressing.
+          The game begins during what appears to be an ordinary day
+          in Emma's life. She is an 18-year-old girl who lives in
+          isolation and has no friends. The player accompanies her
+          through everyday activities and objectives, gradually
+          becoming familiar with her routine.
         </p>
-        <span class="status pending">Guide being prepared</span>
+
+        <h3>The Invitation at 11:23 PM</h3>
+        <p>
+          At 11:23 PM, a mysterious clown appears behind Emma's door.
+          He invites her to a Halloween party. Wanting to escape
+          her loneliness for a while, Emma decides to accept
+          the invitation.
+        </p>
+
+        <h3>A Night That Becomes Stranger</h3>
+        <p>
+          The journey toward the party becomes increasingly unsettling.
+          Strange encounters, an unusual atmosphere, and mysterious
+          VHS recordings encourage the player to question what is
+          really happening.
+        </p>
+
+        <p>
+          The story gradually reveals that Emma's situation may be
+          very different from what it first appears to be.
+          Players are encouraged to pay attention to the environment
+          and discover the meaning behind the recordings.
+        </p>
+
+        <div class="notice">
+          <strong>Story Note:</strong>
+          This section intentionally avoids major plot revelations.
+          The full explanation of Emma's past and the ending
+          is available in the spoiler section below.
+        </div>
       </section>
 
-      <section id="tasks">
-        <div class="label">03 · Objectives</div>
-        <h2>Tasks & Objectives</h2>
+      <section class="section" id="gameplay">
+        <h2>Gameplay & Mechanics</h2>
+
+        <h3>First-Person Exploration</h3>
         <p>
-          The game includes an in-game Task Manager. This Wiki will expand
-          on those objectives with practical explanations.
+          The entire experience is presented from Emma's first-person
+          perspective. Players explore the environments through her
+          point of view, using mouse movement to look around.
         </p>
-        <h3>What each task guide will explain</h3>
-        <ul class="list">
-          <li>What the objective is asking the player to do.</li>
-          <li>Where the player needs to go.</li>
-          <li>Which objects or characters are involved.</li>
-          <li>How to complete the objective step by step.</li>
-          <li>What to do if the objective does not update.</li>
+
+        <h3>Movement & Stamina</h3>
+        <p>
+          Players can walk and run. Running uses a stamina system,
+          making movement more than a simple unrestricted action.
+        </p>
+
+        <h3>Interaction</h3>
+        <p>
+          Interaction is an important part of the experience.
+          Players can open doors, interact with household objects,
+          perform required activities, and progress through dialogue.
+        </p>
+
+        <h3>Task-Based Progression</h3>
+        <p>
+          The game uses a Task Manager to guide players through
+          objectives. Completing these activities advances the
+          experience and maintains the progression of the story.
+        </p>
+
+        <h3>Atmosphere & VHS Style</h3>
+        <p>
+          One of the game's defining elements is its atmosphere.
+          It combines an old-fashioned VHS-inspired visual style
+          with an unsettling sense of confusion and uncertainty.
+          As the night progresses, the experience becomes stranger
+          and more disturbing.
+        </p>
+
+        <h3>Survival & Failure</h3>
+        <p>
+          The game does not feature a dedicated stealth system.
+          If the player reaches a game-over state, the game returns
+          to the main menu.
+        </p>
+
+        <h3>Saving & Inventory</h3>
+        <p>
+          There is no traditional inventory system. Instead,
+          the game provides a Task Manager for objective tracking.
+          A manual save system is not required for the short,
+          story-driven experience.
+        </p>
+      </section>
+
+      <section class="section" id="characters">
+        <h2>Characters & Entities</h2>
+
+        <h3>Emma</h3>
+        <p>
+          Emma is the 18-year-old protagonist of the game.
+          She is isolated and has no friends. The story revolves
+          around her daily life, her mysterious experiences,
+          and the truth that gradually emerges about her past.
+        </p>
+
+        <h3>Clown?</h3>
+        <p>
+          A mysterious figure with a clown-like appearance and
+          Halloween-themed clothing. He first appears at Emma's
+          door at 11:23 PM and invites her to a party.
+        </p>
+
+        <p>
+          The entity behaves in a calm and controlled manner,
+          often appearing unexpectedly and disappearing just as
+          mysteriously. It can also communicate with the player
+          through dialogue.
+        </p>
+
+        <p>
+          Its true identity and nature remain uncertain.
+          Is it a monster, an illusion, Emma's father, or something
+          else entirely? The game leaves these questions for
+          the player to consider.
+        </p>
+
+        <div class="notice">
+          <strong>Identity:</strong> The name "Clown?" is used here
+          to preserve the mystery surrounding the character.
+        </div>
+      </section>
+
+      <section class="section" id="locations">
+        <h2>Locations</h2>
+
+        <h3>Emma's House</h3>
+        <p>
+          The primary environment during the beginning of the game.
+          Players explore the house, interact with objects,
+          and complete everyday activities.
+        </p>
+
+        <h3>The Foggy Streets</h3>
+        <p>
+          The streets Emma travels through on her way to the party.
+          The foggy surroundings contribute to the game's unsettling
+          atmosphere, and the mysterious Clown can be encountered
+          along the way.
+        </p>
+
+        <h3>The Party</h3>
+        <p>
+          The Halloween party Emma was invited to attend.
+          It is one of the central destinations in the story.
+        </p>
+
+        <h3>The Truth Room</h3>
+        <p>
+          A location associated with the VHS recordings.
+          Through these recordings, Emma is confronted with
+          information that changes the player's understanding
+          of the story.
+        </p>
+
+        <h3>The Forbidden Path</h3>
+        <p>
+          An unsettling area containing several locked doors.
+          The player must identify the correct door leading
+          toward the truth.
+        </p>
+      </section>
+
+      <section class="section" id="items">
+        <h2>Items & Interactive Objects</h2>
+
+        <p>
+          The game contains household objects and environmental
+          elements that players can interact with while completing
+          objectives and progressing through the story.
+        </p>
+
+        <ul class="feature-list">
+          <li><strong>Coffee Machine:</strong> An interactive household object.</li>
+          <li><strong>Television:</strong> An interactive object found in the environment.</li>
+          <li><strong>Sofa:</strong> An interactive household object.</li>
+          <li><strong>VHS Tapes:</strong> Recordings that help reveal information about the story.</li>
         </ul>
+
+        <p class="placeholder-note">
+          This list can be expanded with additional objects,
+          their exact locations, and their confirmed uses.
+        </p>
+      </section>
+
+      <section class="section" id="objectives">
+        <h2>Task Manager & Objectives</h2>
+
+        <p>
+          The Task Manager is the main objective-tracking system
+          in Never Go to a Party at Midnight. It guides players
+          through the activities required to progress through
+          the story.
+        </p>
+
+        <ul class="feature-list">
+          <li>Press <strong>TAB</strong> to open or close the Task Manager.</li>
+          <li>Follow the objectives displayed by the game.</li>
+          <li>The game indicates the required items or objects when necessary.</li>
+          <li>Complete the listed activities to advance the story.</li>
+        </ul>
+
         <div class="notice">
-          <strong>Task guides are not available yet</strong>
-          <p>
-            Individual tasks will be documented after their names,
-            locations and completion steps have been verified in-game.
-          </p>
+          <strong>Walkthroughs:</strong>
+          Detailed objective explanations and step-by-step solutions
+          will be published as separate guides in the Guides section.
         </div>
-      </section>
 
-      <section id="walkthrough">
-        <div class="label">04 · Complete guide</div>
-        <h2>Full Walkthrough</h2>
         <p>
-          A complete walkthrough will be organized in the same order
-          as the player's actual progress through the game.
+          <a href="guides/README.md">Visit the Guides Directory →</a>
         </p>
-        <div class="cards">
-          <div class="card">
-            <h3>Beginning</h3>
-            <p>Opening sequence and first objectives.</p>
-            <span class="status pending">Not documented</span>
-          </div>
-          <div class="card">
-            <h3>Main Progression</h3>
-            <p>Areas, objectives and progression steps.</p>
-            <span class="status pending">Not documented</span>
-          </div>
-          <div class="card">
-            <h3>Final Section</h3>
-            <p>Verified final objectives and ending.</p>
-            <span class="status pending">Not documented</span>
-          </div>
-        </div>
       </section>
 
-      <section id="puzzles">
-        <div class="label">05 · Puzzle database</div>
-        <h2>Puzzles & Solutions</h2>
-        <p>
-          Each puzzle will receive its own guide, including clues,
-          required items, solution steps and the result of solving it.
-        </p>
-        <span class="status pending">Solutions being documented</span>
-      </section>
-
-      <section id="items">
-        <div class="label">06 · Collectibles and objects</div>
-        <h2>Items & Secrets</h2>
-        <p>
-          This section will document important objects, usable items,
-          collectibles and hidden discoveries confirmed in the game.
-        </p>
-        <span class="status pending">Database being prepared</span>
-      </section>
-
-      <section id="controls">
-        <div class="label">07 · Gameplay</div>
+      <section class="section" id="controls">
         <h2>Controls</h2>
-        <p>
-          The control list will be filled using the actual in-game
-          settings and verified keyboard or controller bindings.
+
+        <table class="control-table">
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Mouse</td><td>Look Around</td></tr>
+            <tr><td>W / A / S / D</td><td>Move</td></tr>
+            <tr><td>E</td><td>Interact</td></tr>
+            <tr><td>SPACE</td><td>Continue Dialogue</td></tr>
+            <tr><td>TAB</td><td>Open / Close Task Manager</td></tr>
+            <tr><td>Left SHIFT</td><td>Run</td></tr>
+          </tbody>
+        </table>
+
+        <p class="placeholder-note">
+          The game also includes an in-game "How to Play" section.
         </p>
-        <span class="status pending">Controls not documented</span>
       </section>
 
-      <section id="technical">
-        <div class="label">08 · Help</div>
-        <h2>Technical Support</h2>
-        <p>
-          This section will collect verified solutions for technical
-          problems, launch issues, performance settings and common bugs.
-        </p>
-        <span class="status pending">Support articles being prepared</span>
-      </section>
-    </article>
-  </div>
-</main>
+      <section class="section" id="technical">
+        <h2>Technical Information</h2>
 
-<footer>
-  <div class="container">
-    A.R.GH.Y Games Wiki · NGPAM Knowledge Base
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Engine</span>
+            <span class="info-value">Unity 6</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Operating System</span>
+            <span class="info-value">Windows 10</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Architecture</span>
+            <span class="info-value">64-bit</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Storage</span>
+            <span class="info-value">Approximately 500 MB</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Memory</span>
+            <span class="info-value">4 GB RAM minimum</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Internet</span>
+            <span class="info-value">Not Required — Offline Game</span>
+          </div>
+        </div>
+
+        <h3>Minimum Hardware Requirements</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Component</th><th>Minimum Specification</th></tr>
+            <tr><td>Operating System</td><td>Windows 10 (64-bit)</td></tr>
+            <tr><td>Processor</td><td>Intel Core i3, approximately 4 cores / 4 threads</td></tr>
+            <tr><td>Memory</td><td>4 GB RAM</td></tr>
+            <tr><td>Graphics</td><td>Intel UHD Graphics 620 (Very Low settings)</td></tr>
+            <tr><td>Storage</td><td>Approximately 500 MB</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Higher Graphics Performance</h3>
+        <p>
+          For higher graphics settings, a graphics card such as
+          the NVIDIA GeForce GTX 750 Ti is recommended.
+        </p>
+
+        <h3>Graphics Settings</h3>
+        <p>
+          The available graphics presets are:
+          <strong>Very Low, Low, High, and Very High.</strong>
+        </p>
+
+        <h3>Display Resolution</h3>
+        <p>
+          Full HD (1920 × 1080) and other resolutions are supported.
+        </p>
+
+        <div class="notice">
+          Hardware requirements are presented as the developer's
+          provided specifications. Actual performance may vary
+          depending on the system and selected graphics settings.
+        </div>
+      </section>
+
+      <section class="section" id="media">
+        <h2>Gallery</h2>
+
+        <p>
+          Official screenshots and artwork from
+          Never Go to a Party at Midnight.
+        </p>
+
+        <div class="gallery">
+
+          <!-- Replace this placeholder with your cover image. -->
+          <div class="media-slot">
+            <div>
+              <strong>Game Cover</strong>
+              <small>Upload your cover to images/ngpam-cover.jpg</small>
+            </div>
+          </div>
+
+          <!-- Replace these placeholders with actual gameplay screenshots. -->
+          <div class="media-slot">
+            <div>
+              <strong>Gameplay Screenshot 01</strong>
+              <small>images/ngpam-gameplay-01.jpg</small>
+            </div>
+          </div>
+
+          <div class="media-slot">
+            <div>
+              <strong>Gameplay Screenshot 02</strong>
+              <small>images/ngpam-gameplay-02.jpg</small>
+            </div>
+          </div>
+
+          <div class="media-slot">
+            <div>
+              <strong>Gameplay Screenshot 03</strong>
+              <small>images/ngpam-gameplay-03.jpg</small>
+            </div>
+          </div>
+
+          <div class="media-slot">
+            <div>
+              <strong>Gameplay Screenshot 04</strong>
+              <small>images/ngpam-gameplay-04.jpg</small>
+            </div>
+          </div>
+
+          <div class="media-slot">
+            <div>
+              <strong>Official Artwork</strong>
+              <small>Upload additional official artwork here.</small>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="placeholder-note">
+          These are upload placeholders. Replace them with actual
+          image elements after uploading your files.
+        </p>
+      </section>
+
+      <section class="section" id="links">
+        <h2>Official Links</h2>
+
+        <p>
+          Find the official game page and additional information
+          through the links below.
+        </p>
+
+        <ul class="feature-list">
+          <li><strong>Game Page:</strong> <span>Official download / store link to be added.</span></li>
+          <li><strong>Developer:</strong> <span>A.R.GH.Y</span></li>
+          <li><strong>Video:</strong> <span>Official trailer or gameplay video to be added.</span></li>
+        </ul>
+
+        <p class="placeholder-note">
+          Add the real URLs here when editing this page.
+        </p>
+      </section>
+
+      <section class="section" id="spoilers">
+        <h2>Story Explained (Spoilers)</h2>
+
+        <div class="notice">
+          <strong>Major Spoiler Warning:</strong>
+          The following section reveals important details about
+          Emma's past and the ending of the game.
+          Read only after completing the experience.
+        </div>
+
+        <details class="spoiler">
+          <summary>Reveal the Full Story and Ending</summary>
+          <div class="spoiler-content">
+
+            <h3>Emma's Past</h3>
+            <p>
+              The story initially presents Emma as an ordinary,
+              isolated girl who simply wants to escape her loneliness.
+              The mysterious Clown appears to be the main threat.
+            </p>
+
+            <p>
+              However, the VHS recordings reveal a much darker truth:
+              Emma killed her own father in the past and has been
+              trying to forget what happened.
+            </p>
+
+            <h3>The Truth Behind the Events</h3>
+            <p>
+              As the player discovers more through the recordings,
+              the meaning of the events begins to change.
+              The identity and nature of the Clown become central
+              to understanding Emma's situation.
+            </p>
+
+            <h3>Ending</h3>
+            <p>
+              Emma eventually confronts the truth about her past
+              and the murder of her father. She is then erased
+              by the Clown, after which she is never heard from again.
+            </p>
+
+            <h3>Multiple Endings</h3>
+            <p>
+              The game has one fixed ending. There are no
+              alternative endings.
+            </p>
+
+          </div>
+        </details>
+      </section>
+
+    </main>
   </div>
-</footer>
+
+  <footer class="footer">
+    <p>
+      <strong>A.R.GH.Y Games Wiki</strong> ·
+      Never Go to a Party at Midnight
+    </p>
+    <p>
+      This is a fan-accessible official game information page
+      maintained by the game's developer.
+    </p>
+    <p>© <span id="year"></span> A.R.GH.Y. All rights reserved.</p>
+    <a href="index.html">Back to Main Menu</a>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
