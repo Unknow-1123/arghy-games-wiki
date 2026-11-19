@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://unknow-1123.github.io/arghy-games-wiki/sitemap.xml
