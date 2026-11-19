@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A.R.G.H.Y Games Wiki</title>
+  <meta name="description" content="The official A.R.G.H.Y Games Wiki. Find walkthroughs, puzzle solutions, gameplay guides, characters, secrets and technical support for A.R.G.H.Y games.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#101010">
+
+  <meta property="og:title" content="A.R.G.H.Y Games Wiki">
+  <meta property="og:description" content="Know the game. Find your way.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101010'/%3E%3Ctext x='50' y='67' font-size='58' text-anchor='middle' fill='%23ff7138' font-family='Arial' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root {
+      --bg: #0d0e10;
+      --surface: #151619;
+      --surface2: #1b1d21;
+      --border: #292b30;
+      --text: #f3f3f3;
+      --muted: #999da6;
+      --accent: #ff7138;
+      --accent2: #ff945f;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(13, 14, 16, .92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #111;
+      font-weight: 950;
+      font-size: 23px;
+      box-shadow: 0 0 24px rgba(255, 113, 56, .17);
+    }
+
+    .brand span:last-child {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: #c3c5ca;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 105px 0 95px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 78% 35%, rgba(255, 113, 56, .13), transparent 38%),
+        radial-gradient(ellipse at 15% 80%, rgba(255, 113, 56, .055), transparent 35%),
+        #101114;
+    }
+
+    .hero::after {
+      content: "ARGHY";
+      position: absolute;
+      right: -35px;
+      bottom: -105px;
+      color: rgba(255,255,255,.018);
+      font-size: clamp(150px, 25vw, 340px);
+      font-weight: 950;
+      letter-spacing: -15px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -3px;
+      font-weight: 900;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 610px;
+      color: #a8abb3;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 21px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #151515;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #41434a;
+      color: #eee;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(25px, 4vw, 34px);
+      letter-spacing: -.8px;
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 315px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(255, 113, 56, .14), transparent 45%),
+        linear-gradient(145deg, #202126, #141518 75%);
+      transition: .25s ease;
+    }
+
+    .game-card:hover {
+      border-color: rgba(255, 113, 56, .6);
+      transform: translateY(-4px);
+    }
+
+    .game-number {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      color: rgba(255,255,255,.055);
+      font-size: 100px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .game-type {
+      position: relative;
+      z-index: 1;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 850;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .game-card h3 {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.15;
+      margin-bottom: 13px;
+    }
+
+    .game-card p {
+      position: relative;
+      z-index: 1;
+      color: #a7aab2;
+      font-size: 13px;
+      max-width: 450px;
+      margin-bottom: 23px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 23px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid #373940;
+      border-radius: 5px;
+      color: #c5c7ce;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .card-link {
+      position: relative;
+      z-index: 1;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .5px;
+    }
+
+    .card-link span {
+      display: inline-block;
+      transition: transform .2s;
+    }
+
+    .card-link:hover span {
+      transform: translateX(5px);
+    }
+
+    .search-section {
+      padding-top: 15px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 650px;
+      padding: 8px 12px 8px 17px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .search-icon {
+      color: var(--accent);
+      font-size: 19px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      padding: 10px 0;
+    }
+
+    .search-box input::placeholder {
+      color: #777b84;
+    }
+
+    .search-box button {
+      border: 0;
+      border-radius: 6px;
+      padding: 9px 15px;
+      background: var(--accent);
+      color: #171717;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .search-note {
+      color: #777b84;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    .wiki-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .wiki-item {
+      display: block;
+      padding: 21px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      transition: .2s ease;
+    }
+
+    .wiki-item:hover {
+      background: var(--surface2);
+      border-color: #555860;
+    }
+
+    .wiki-item .symbol {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: rgba(255, 113, 56, .1);
+      color: var(--accent);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .wiki-item h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .wiki-item p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .notice {
+      display: flex;
+      gap: 17px;
+      align-items: flex-start;
+      padding: 23px;
+      border: 1px solid rgba(255, 113, 56, .28);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      background: rgba(255, 113, 56, .045);
+    }
+
+    .notice-icon {
+      color: var(--accent);
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
+    .notice h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .notice p {
+      color: #a6a9b1;
+      font-size: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-copy h2 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 17px;
+    }
+
+    .about-copy p {
+      color: #a4a7af;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .about-panel {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: linear-gradient(145deg, #1b1d21, #121315);
+    }
+
+    .about-panel h3 {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 17px;
+      text-transform: uppercase;
+    }
+
+    .about-panel ul {
+      list-style: none;
+    }
+
+    .about-panel li {
+      padding: 11px 0;
+      border-bottom: 1px solid #2b2d32;
+      color: #c3c5cb;
+      font-size: 12px;
+    }
+
+    .about-panel li:last-child {
+      border-bottom: 0;
+    }
+
+    .about-panel li::before {
+      content: "↗";
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      background: #0a0b0d;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer p {
+      color: #777b84;
+      font-size: 11px;
+    }
+
+    .footer strong {
+      color: #d9d9d9;
+    }
+
+    .footer-mark {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 25px;
+      border: 1px dashed #41434a;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 65px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .games-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wiki-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .brand {
+        font-size: 13px;
+        gap: 8px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        font-size: 19px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 10px;
+      }
+
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.7px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .game-card {
+        min-height: 290px;
+        padding: 23px;
+      }
+
+      .wiki-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .search-box {
+        gap: 7px;
+      }
+
+      .search-box button {
+        padding: 9px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="A.R.G.H.Y Games Wiki home">
+        <span class="brand-mark">A</span>
+        <span>A.R.G.H.Y <span>WIKI</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#games">Games</a>
+        <a href="#categories">Wiki</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">The official game knowledge base</div>
+
+        <h1>Know the game.<br><span>Find your way.</span></h1>
+
+        <p>
+          Welcome to the official A.R.G.H.Y Games Wiki.
+          Explore game information, walkthroughs, puzzle guides,
+          characters, secrets and gameplay mechanics.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#games">Explore Games ↗</a>
+          <a class="btn btn-secondary" href="#categories">Browse Wiki</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Our games</div>
+            <h2>Explore the Games</h2>
+            <p>Choose a game to explore its knowledge base.</p>
+          </div>
+        </div>
+
+        <div class="games-grid">
+
+          <article class="game-card" data-search="never go to a party at midnight ngpam horror tasks walkthrough puzzles">
+            <div class="game-number">01</div>
+            <div class="game-type">Horror / Survival</div>
+            <h3>Never Go to a Party at Midnight</h3>
+            <p>
+              Explore the game's objectives, task explanations,
+              puzzle solutions and secrets.
+            </p>
+            <div class="tags">
+              <span class="tag">Horror</span>
+              <span class="tag">Task Guide</span>
+              <span class="tag">Walkthrough</span>
+            </div>
+            <a class="card-link" href="#ngpam">EXPLORE NGPAM <span>→</span></a>
+          </article>
+
+          <article class="game-card" data-search="a night with august anwa august survival horror characters mechanics">
+            <div class="game-number">02</div>
+            <div class="game-type">Survival Horror</div>
+            <h3>A Night With August</h3>
+            <p>
+              Learn about August, gameplay mechanics, locations,
+              puzzles and survival strategies.
+            </p>
+            <div class="tags">
+              <span class="tag">Survival Horror</span>
+              <span class="tag">August</span>
+              <span class="tag">Gameplay</span>
+            </div>
+            <a class="card-link" href="#anwa">EXPLORE ANWA <span>→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section" id="search">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Find information</div>
+            <h2>Search the Wiki</h2>
+            <p>Search the available topics on this page.</p>
+          </div>
+        </div>
+
+        <form class="search-box" id="searchForm">
+          <span class="search-icon">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search games, guides, puzzles..."
+            autocomplete="off"
+            aria-label="Search wiki topics"
+          >
+          <button type="submit">SEARCH</button>
+        </form>
+        <p class="search-note">
+          Search currently covers the topics displayed on this homepage.
+        </p>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Knowledge base</div>
+            <h2>Wiki Categories</h2>
+            <p>Explore the main sections of the A.R.G.H.Y Games Wiki.</p>
+          </div>
+        </div>
+
+        <div class="wiki-grid" id="wikiGrid">
+
+          <a class="wiki-item" href="#ngpam" data-search="walkthrough objectives tasks guides">
+            <div class="symbol">01</div>
+            <h3>Walkthroughs & Objectives</h3>
+            <p>Step-by-step guides and objective explanations.</p>
+          </a>
+
+          <a class="wiki-item" href="#ngpam" data-search="puzzles solutions riddles">
+            <div class="symbol">02</div>
+            <h3>Puzzles & Solutions</h3>
+            <p>Understand puzzles and learn how to solve them.</p>
+          </a>
+
+          <a class="wiki-item" href="#anwa" data-search="characters august enemies">
+            <div class="symbol">03</div>
+            <h3>Characters</h3>
+            <p>Information about characters and their roles.</p>
+          </a>
+
+          <a class="wiki-item" href="#ngpam" data-search="items secrets collectibles">
+            <div class="symbol">04</div>
+            <h3>Items & Secrets</h3>
+            <p>Discover important items and hidden details.</p>
+          </a>
+
+          <a class="wiki-item" href="#anwa" data-search="controls mechanics gameplay">
+            <div class="symbol">05</div>
+            <h3>Controls & Mechanics</h3>
+            <p>Learn how the games work and how to play.</p>
+          </a>
+
+          <a class="wiki-item" href="#about" data-search="technical support troubleshooting">
+            <div class="symbol">06</div>
+            <h3>Technical Support</h3>
+            <p>Help with common technical issues.</p>
+          </a>
+
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          No matching topics found. Try another search.
+        </div>
+      </div>
+    </section>
+
+    <section id="ngpam">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Game knowledge base / 01</div>
+            <h2>Never Go to a Party at Midnight</h2>
+            <p>Information and guides for NGPAM players.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <div class="notice-icon">ⓘ</div>
+          <div>
+            <h3>Detailed guides are being prepared</h3>
+            <p>
+              NGPAM includes an in-game Task Manager.
+              This Wiki will go further by explaining what each task means,
+              where to go, what to interact with and how to complete
+              each objective step by step. Guides will be based on
+              verified gameplay, not guesses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="anwa">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Game knowledge base / 02</div>
+            <h2>A Night With August</h2>
+            <p>Everything players need to know about ANWA.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          <div class="notice-icon">ⓘ</div>
+          <div>
+            <h3>ANWA Wiki is under preparation</h3>
+            <p>
+              This section will include a comprehensive beginner's guide,
+              controls, locations, gameplay mechanics, character information,
+              puzzles and survival strategies. Content will be added
+              after checking the actual game.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="section-label">About this project</div>
+          <h2>One place for everything about A.R.G.H.Y games.</h2>
+          <p>
+            A.R.G.H.Y Games Wiki is the official knowledge base for games
+            developed by A.R.G.H.Y.
+          </p>
+          <p>
+            Its purpose is to provide clear, accurate and useful information
+            for players, from basic gameplay explanations to detailed
+            walkthroughs and puzzle solutions.
+          </p>
+          <p>
+            The Wiki is maintained by the developer. Public visitors
+            can browse its pages, while editing access remains restricted.
+          </p>
+        </div>
+
+        <div class="about-panel">
+          <h3>What you can find here</h3>
+          <ul>
+            <li>Detailed walkthroughs</li>
+            <li>Task and objective explanations</li>
+            <li>Puzzle solutions</li>
+            <li>Character and item information</li>
+            <li>Gameplay mechanics and controls</li>
+            <li>Technical support and troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>A.R.G.H.Y Games Wiki</strong> · Independent game knowledge base.</p>
+      <div class="footer-mark">A.R.G.H.Y</div>
+      <p>© <span id="year"></span> A.R.G.H.Y. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const searchableItems = Array.from(
+      document.querySelectorAll("[data-search]")
+    );
+    const emptyState = document.getElementById("emptyState");
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      searchableItems.forEach((item) => {
+        const content = (
+          item.innerText + " " + (item.dataset.search || "")
+        ).toLowerCase();
+
+        const matches = !query || content.includes(query);
+
+        item.style.display = matches ? "" : "none";
+
+        if (matches) visibleCount++;
+      });
+
+      emptyState.style.display =
+        query && visibleCount === 0 ? "block" : "none";
+    }
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      performSearch();
+    });
+
+    searchInput.addEventListener("input", performSearch);
+  </script>
+
+</body>
+</html>
